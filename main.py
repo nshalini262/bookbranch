@@ -1,5 +1,7 @@
 import pandas as pd
 import tree_build
+import traverse
+
 books_df = pd.read_csv("GoodReads_100k_books.csv")
 # getting rid of data points without information
 books_df = books_df.dropna(subset=['author', 'desc', 'genre', 'isbn', 'pages', 'rating', 'title', 'totalratings'])
@@ -22,5 +24,5 @@ filter_type = input("Filter books by 'genre', 'author' or 'rating': ").strip().l
 
 root = tree_build.tree_build(books, filter_type)
 
-
-
+# traverse.bfs(root)
+traverse.dfs(root)
