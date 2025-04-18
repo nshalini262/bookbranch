@@ -40,7 +40,7 @@ if filter_type == "genre":
 
     traversal_in = input("bfs or dfs: ").strip().lower()
     if traversal_in == "bfs":
-        traverse.bfs(root)
+        traverse.bfs(root, choose_genre, amt_res)
     elif traversal_in == "dfs":
         # traverse.bfs(root)
         traverse.dfs(root, choose_genre, amt_res)
