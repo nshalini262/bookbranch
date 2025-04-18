@@ -23,6 +23,24 @@ for _, row in books_df.iterrows():
 filter_type = input("Filter books by 'genre', 'author' or 'rating': ").strip().lower()
 
 root = tree_build.tree_build(books, filter_type)
+if filter_type == "genre":
+    choose_genre = input("Choose a genre:\n"
+                         "-----------------------\n"
+                         "1. Non-Fiction\n"
+                         "2. Science Fiction\n"
+                         "3. Mystery\n"
+                         "4. Historical Fiction\n"
+                         "5. Romance\n"
+                         "6. Other\n").strip()
 
-# traverse.bfs(root)
-traverse.dfs(root)
+    amt_res = int(input("How many results would you like? "))
+    if amt_res < 0:
+        print("Results must be greater than 0")
+        amt_res = int(input("Try again: "))
+
+    traversal_in = input("bfs or dfs: ").strip().lower()
+    if traversal_in == "bfs":
+        traverse.bfs(root)
+    elif traversal_in == "dfs":
+        # traverse.bfs(root)
+        traverse.dfs(root, choose_genre, amt_res)
