@@ -18,24 +18,42 @@ def print_table(filter_value, books, max_rows):
     print(table.draw())
 
 
-def bfs(root, filter_value, counts):
+def bfs(root, filter_value, counts, rating_filter = None):
     queue = deque([root])
+    second = []
     while queue:
         node = queue.popleft()
         if node.books and node.value.lower() == filter_value.lower():
-            print_table(node.value, node.books, counts)
-            break
+            for book in node.books:
+                if not rating_filter or tree_build.get_rating(book.rating) == rating_filter:
+                    second.append(book)
+                if len(second) == counts:
+                    break
+
         queue.extend(node.children)
+        if len(second) == counts:
+            break
+    print_table(filter_value, second, counts)
 
 
-def dfs(root, filter_value, counts):
+def dfs(root, filter_value, counts, rating_filter = None):
     stack = [root]
+
+    second = []
 
     while stack:
         node = stack.pop()
-        # if node.books and node.value.lower() == filter_value:
+
         if node.books and node.value.lower() == filter_value.lower():
-            print_table(node.value, node.books, counts)
-            break
+
+            for book in node.books:
+                if not rating_filter or tree_build.get_rating(book.rating) == rating_filter:
+                    second.append(book)
+                if len(second) == counts:
+                    break
+
         stack.extend(reversed(node.children))
+        if len(second) == counts:
+            break
+    print_table(filter_value, second, counts)
 

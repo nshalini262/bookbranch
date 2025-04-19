@@ -58,6 +58,31 @@ elif filter_type == "rating":
     ).strip()
     choose_filter = ratings.get(rating_choice, None)
 
+# second filter
+rating_filter = None
+second_filter = input("Would you like to further filter by rating? (yes/no) ").strip().lower()
+
+if second_filter == "yes":
+    ratings = {
+        "1": "0.0-1.0",
+        "2": "1.0-2.0",
+        "3": "2.0-3.0",
+        "4": "3.0-4.0",
+        "5": "4.0-5.0"
+    }
+    rating_choice = input(
+        "Choose a rating range (1-5):\n"
+        "-----------------------\n"
+        "1. 0.0-1.0\n"
+        "2. 1.0-2.0\n"
+        "3. 2.0-3.0\n"
+        "4. 3.0-4.0\n"
+        "5. 4.0-5.0\n"
+    ).strip()
+    rating_filter = ratings.get(rating_choice, None)
+
+
+
 try:
     amt_res = int(input("How many results would you like? "))
     if amt_res <= 0:
@@ -68,6 +93,8 @@ except ValueError:
 
 traversal_in = input("bfs or dfs: ").strip().lower()
 if traversal_in == "bfs":
-    traverse.bfs(root, choose_filter, amt_res)
+    traverse.bfs(root, choose_filter, amt_res, rating_filter)
 elif traversal_in == "dfs":
-    traverse.dfs(root, choose_filter, amt_res)
+    traverse.dfs(root, choose_filter, amt_res, rating_filter)
+else:
+    print("Must choose bfs or dfs. ")
