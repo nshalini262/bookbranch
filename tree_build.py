@@ -2,6 +2,7 @@ from collections import deque
 
 
 class Book:
+    # initialize book objects
     def __init__(self, author, desc, genre, isbn, pages, rating, title, totalratings):
         self.author = author
         self.desc = desc
@@ -12,6 +13,7 @@ class Book:
         self.title = title
         self.totalratings = totalratings
 
+# initialize tree
 class TreeNode:
     def __init__(self, value):
         self.value = value
@@ -44,6 +46,7 @@ def get_genre(genre):
     else:
         return "Other"
 
+# build tree based on filter
 def tree_build(books, filter):
     root = TreeNode("Root")
     book_dict = {}

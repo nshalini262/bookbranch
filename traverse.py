@@ -2,6 +2,7 @@ import tree_build
 from collections import deque
 
 
+# perform Breadth First Search
 def bfs(root, filter_value, counts, rating_filter = None):
     queue = deque([root])
     second = []
@@ -22,7 +23,7 @@ def bfs(root, filter_value, counts, rating_filter = None):
             break
     return second
 
-
+# perform Depth First Search
 def dfs(root, filter_value, counts, rating_filter = None):
     stack = [root]
     second = []
@@ -42,6 +43,7 @@ def dfs(root, filter_value, counts, rating_filter = None):
         if len(second) == counts:
             break
     return second
+
 
 # wrapper functions for UI
 def bfs_collection(root, filter_value, counts, rating_filter = None):
