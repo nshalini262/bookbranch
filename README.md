@@ -1,6 +1,6 @@
-Steps to run and use program:
+Steps to run and use Book Branch:
 1. Open the project files in PyCharm.
-2. In the terminal window, type "python frontend.py". This should open the UI window which will look like the image below.
+2. In the terminal window, type "python frontend.py". This command may vary based on your setup. This should open the UI window which will look like the image below.
    ![image](https://github.com/user-attachments/assets/de54a9eb-4a7a-44f5-8e4f-1cce5f6ff5e9)
 3. To test the various implementations, the filters can be given different values through drop downs and text boxes like in the image below. If "yes" is
    selected for the "Further filter by rating" option, a new dropdown box will appear.
